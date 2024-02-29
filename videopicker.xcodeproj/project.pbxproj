@@ -14,6 +14,7 @@
 		C61C1F522B8FB3700044C48B /* videopickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C1F512B8FB3700044C48B /* videopickerTests.swift */; };
 		C61C1F5C2B8FB3700044C48B /* videopickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C1F5B2B8FB3700044C48B /* videopickerUITests.swift */; };
 		C61C1F5E2B8FB3700044C48B /* videopickerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C1F5D2B8FB3700044C48B /* videopickerUITestsLaunchTests.swift */; };
+		C688571F2B9071EE001B5264 /* SwiftUIViewVideoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C688571E2B9071EE001B5264 /* SwiftUIViewVideoPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		C61C1F572B8FB3700044C48B /* videopickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = videopickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61C1F5B2B8FB3700044C48B /* videopickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = videopickerUITests.swift; sourceTree = "<group>"; };
 		C61C1F5D2B8FB3700044C48B /* videopickerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = videopickerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C688571E2B9071EE001B5264 /* SwiftUIViewVideoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewVideoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				C61C1F432B8FB3700044C48B /* Assets.xcassets */,
 				C61C1F452B8FB3700044C48B /* videopicker.entitlements */,
 				C61C1F462B8FB3700044C48B /* Preview Content */,
+				C688571E2B9071EE001B5264 /* SwiftUIViewVideoPicker.swift */,
 			);
 			path = videopicker;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C61C1F422B8FB36C0044C48B /* ContentView.swift in Sources */,
+				C688571F2B9071EE001B5264 /* SwiftUIViewVideoPicker.swift in Sources */,
 				C61C1F402B8FB36C0044C48B /* videopickerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,58 +3,23 @@ import UIKit
 import AVFoundation
 import AVKit
 
-
-struct VideoPicker: UIViewControllerRepresentable {
-    @Binding var videoURL: URL?
-    @Environment(\.presentationMode) private var presentationMode
-    
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(parent: self)
-    }
-
-    func makeUIViewController(context: Context) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        picker.delegate = context.coordinator
-        picker.sourceType = .photoLibrary
-        picker.mediaTypes = ["public.movie"]
-        return picker
-    }
-    
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-        // Update
-    }
-    
-    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-        let parent: VideoPicker
-        
-        init(parent: VideoPicker) {
-            self.parent = parent
-        }
-        
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let videoURL = info[.mediaURL] as? URL {
-                parent.videoURL = videoURL
-            }
-            parent.presentationMode.wrappedValue.dismiss()
-        }
-        
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            parent.presentationMode.wrappedValue.dismiss()
-        }
-    }
-}
-
+// ContentView is a SwiftUI view responsible for displaying video content.
 struct ContentView: View {
+    
+    // State variables to manage the video URL and the presentation of the video picker.
     @State private var videoURL: URL?
     @State private var isShowingPicker = false
     
+    // Body of the ContentView.
     var body: some View {
         VStack {
+            // Display VideoPlayer if videoURL is not nil.
             if let url = videoURL {
                 VideoPlayer(player: AVPlayer(url: url)).frame(height: 300)
             } else {
+                // Button to trigger the presentation of the video picker.
                 Button(action: {
-                    isShowingPicker = true
+                    isShowingPicker = true // Set isShowingPicker to true when button is clicked
                 }) {
                     Image(systemName: "video")
                         .resizable()
@@ -64,20 +29,21 @@ struct ContentView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
             }
-//            Text("PICK VIDEO").foregroundColor(.blue).bold().shadow(radius: 10)
-            Button {
-            } label: {
-             Text("PICK VIDEO")
-             .frame(maxWidth: .infinity)
+            
+            // Button to pick a video file.
+            Button(action: {
+                isShowingPicker = true // Set isShowingPicker to true when button is clicked
+            }) {
+                Text("PICK VIDEO")
+                    .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
-            
         }
+        // Present the video picker as a sheet when isShowingPicker is true.
         .sheet(isPresented: $isShowingPicker) {
-            VideoPicker(videoURL: $videoURL)
+            SwiftUIViewVideoPicker(videoURL: $videoURL)
         }
         .padding()
     }
 }
-
